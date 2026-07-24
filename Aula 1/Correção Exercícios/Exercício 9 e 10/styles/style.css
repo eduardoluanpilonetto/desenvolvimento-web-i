@@ -1,0 +1,38 @@
+#container{
+    justify-content: center;
+    align-content: center;
+    margin: 0px 200px 0px 200px;
+    background: #1C1C1C;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#tituloPrincipal{
+    color: cyan;
+    justify-content: center;
+    text-align: center;
+}
+
+h2{
+    color: pink;
+}
+
+p{
+    color: white;
+}
+
+#Data{
+    text-align: right;
+}
+
+#divimg{
+    width: 100%;
+     text-align: center;
+}
+
+#img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+}

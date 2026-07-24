@@ -1,0 +1,29 @@
+Exercício 1 - Explique com suas palavras a diferença entre Internet e Web.
+    A Internet é a rede mundial que conecta computadores e dispositivos. A Web (WWW) é um dos serviços que funciona sobre a Internet e permite acessar páginas e sites por meio de navegadores.
+
+Exercício 2 - Cite três exemplos de serviços que utilizam a Internet.
+    Três exemplos de serviços que utilizam a Internet são:
+        E-mail;
+        Navegação em sites (Web);
+        Streaming de vídeos (como YouTube e Netflix).
+
+Exercício 3 - Quem é o cliente e quem é o servidor ao acessar um site pelo navegador?
+    O cliente é o navegador (como Google Chrome, Edge ou Firefox) utilizado pelo usuário. O servidor é o computador onde o site está hospedado e que envia as informações solicitadas.
+
+Exercício 4 - Descreva o fluxo de comunicação entre cliente e servidor.
+    O usuário faz uma solicitação pelo navegador. Essa solicitação é enviada ao servidor pela Internet. O servidor processa o pedido, busca as informações necessárias e envia uma resposta de volta ao navegador, que exibe o conteúdo na tela.
+
+Exercício 5 - Qual é a principal função do Front-end?
+    A principal função do Front-end é criar a interface do site ou sistema, ou seja, tudo o que o usuário vê e com o que interage.
+
+Exercício 6 - Qual é a principal função do Back-end?
+    A principal função do Back-end é processar as regras de negócio, acessar o banco de dados e fornecer as informações necessárias para o funcionamento do sistema.
+
+Exercício 7 - Cite três tecnologias utilizadas no Front-end.
+    Três tecnologias utilizadas no Front-end são:
+        HTML;
+        CSS;
+        JavaScript.
+
+Exercício 8 - Qual ferramenta é utilizada para escrever código-fonte?
+    A ferramenta utilizada para escrever código-fonte é um editor de código, como o Visual Studio Code (VS Code).
