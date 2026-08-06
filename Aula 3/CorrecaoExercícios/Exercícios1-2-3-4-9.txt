@@ -1,0 +1,21 @@
+Exercício 1
+Explique com suas palavras o que é HTML semântico.
+Resposta:
+HTML semântico é a utilização de tags que descrevem o significado e a função do conteúdo da página, tornando o código mais organizado, acessível e fácil de entender por navegadores, mecanismos de busca e desenvolvedores.
+Exercício 2
+Qual a principal função da tag <header>?
+Resposta:
+b) Representar o cabeçalho
+Exercício 3
+Qual tag é utilizada para menus de navegação?
+Resposta:
+c) nav
+Exercício 4
+Qual é a função da tag <main>?
+Resposta:
+A tag <main> representa o conteúdo principal da página, ou seja, a parte mais importante do documento, excluindo cabeçalhos, rodapés e menus de navegação.
+Exercício 9
+Qual a diferença entre <section> e <article>?
+Resposta:
+<section> é utilizada para agrupar conteúdos relacionados dentro de uma página, organizando o documento em seções.
+<article> representa um conteúdo independente e completo, como uma notícia, postagem de blog, artigo ou publicação, que pode ser compreendido separadamente do restante da página.
