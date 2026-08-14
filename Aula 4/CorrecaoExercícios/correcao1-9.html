@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correção Exercícios</title>
+</head>
+<body>
+    <main>
+        <form action="Post" style="display: flex; flex-direction: column;">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome">
+            <label for="email">E-mail</label>
+            <input type="email" id="email">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha">
+            <label for="datanascimento">Data Nascimento</label>
+            <input type="datetime-local" id="datanascimento">
+            <label for="estados">Estados</label>
+            <select id="estados">
+                <option value=""></option>
+                <option value="PR">Paraná</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="SC">Santa Catarina</option>
+            </select>
+            <label for="comentarios">Comentários</label>
+            <textarea id="comentarios" cols="20" rows="5">
+            </textarea>
+            <label for="">Hobbies:</label>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <input type="checkbox"><p>Jogar Bola</p>
+                <input type="checkbox"><p>Farmar Aura</p>
+                <input type="checkbox"><p>Ver o João Farmar Aura</p>
+            </div>
+            <label >Turno</label>
+            <div  style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <label id="manha">manhã</label><input id="manha" type="radio" value="manha" name="turno">
+                <label id="tarde">tarde</label><input id="tarde" type="radio" value="tarde" name="turno">
+                <label for="noite">noite</label><input id="noite" type="radio" value="noite" name="turno">
+            </div>
+            <input type="submit" value="Enviar Formulário">
+            <input type="reset" value="Resetar Formulário">
+        </form>
+    </main>
+</body>
+</html>
