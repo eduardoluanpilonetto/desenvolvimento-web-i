@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correção — Aula 6: Layout com CSS</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #161922;
+    --panel-2: #1c202b;
+    --border: #2a2f3d;
+    --text: #e7e9ee;
+    --muted: #9aa1b1;
+    --accent: #5ee0c0;
+    --accent-2: #f2a65a;
+    --accent-3: #e97b0e;
+    --mono: 'Consolas', 'Menlo', 'Monaco', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  header.page-head {
+    background: linear-gradient(135deg, #14171f, #1b2029);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 20px 30px;
+    text-align: center;
+  }
+
+  header.page-head h1 {
+    margin: 0 0 8px;
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+  }
+
+  header.page-head p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  nav.toc {
+    max-width: 900px;
+    margin: 24px auto 0;
+    padding: 16px 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  nav.toc strong { color: var(--accent); }
+
+  nav.toc ul {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  nav.toc a {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  nav.toc a:hover { border-color: var(--accent); color: var(--accent); }
+
+  main {
+    max-width: 900px;
+    margin: 30px auto 60px;
+    padding: 0 20px;
+  }
+
+  section.exercicio {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin-bottom: 22px;
+  }
+
+  section.exercicio h2 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .num {
+    background: var(--accent);
+    color: #0f1115;
+    font-weight: bold;
+    font-size: 0.85rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  section.exercicio p { color: var(--text); }
+  section.exercicio ul { color: var(--text); }
+
+  code {
+    font-family: var(--mono);
+    background: var(--panel-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--accent-2);
+  }
+
+  pre {
+    background: #0b0d12;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: #d7dbe4;
+    margin: 10px 0;
+  }
+
+  .demo-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 16px 0 8px;
+  }
+
+  .demo {
+    background: #0b0d12;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  /* ===== Demo específico: Exercício 3 ===== */
+  .ex3-caixa {
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    background: var(--accent);
+    color: #0f1115;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+
+  /* ===== Demo específico: Exercício 4 ===== */
+  .ex4-caixa {
+    padding: 15px;
+    background-color: #cfe8ff;
+    color: #0f1115;
+    display: inline-block;
+    border-radius: 4px;
+  }
+
+  /* ===== Demo específico: Exercício 5 ===== */
+  .ex5-elemento {
+    border: 3px solid #e5484d;
+    padding: 12px;
+    display: inline-block;
+    border-radius: 4px;
+    color: var(--text);
+  }
+
+  /* ===== Demo específico: Exercício 7 ===== */
+  .ex7-caixa {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    background: var(--accent-2);
+    color: #0f1115;
+    margin: 5px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 90px;
+    font-weight: bold;
+  }
+
+  .ex7-caixa:hover{
+    cursor: pointer;
+    background: var(--accent-3);
+  }
+
+  /* ===== Demo específico: Exercício 8 (card) ===== */
+  .ex8-card {
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 20px;
+    width: 260px;
+    background: var(--panel-2);
+  }
+
+  .ex8-card h3 { margin-top: 0; color: var(--accent); }
+  .ex8-card p { margin-bottom: 0; color: var(--muted); font-size: 0.9rem; }
+
+  /* ===== Demo específico: Exercício 9 ===== */
+  .ex9-header, .ex9-footer {
+    background: #1f2937;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .ex9-main {
+    padding: 20px;
+    margin: 10px 0;
+    background: var(--panel-2);
+    border-radius: 4px;
+  }
+
+  /* ===== Demo específico: Exercício 10 (layout completo) ===== */
+  .ex10-wrapper {
+    font-family: Arial, sans-serif;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .ex10-header {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+  }
+
+  .ex10-aside {
+    display: inline-block;
+    width: 25%;
+    height: 180px;
+    background: #e5e7eb;
+    color: #1f2937;
+    padding: 20px;
+    border: 1px solid #cbd5e1;
+    box-sizing: border-box;
+    vertical-align: top;
+  }
+
+  .ex10-main {
+    display: inline-block;
+    width: 73%;
+    height: 180px;
+    padding: 20px;
+    box-sizing: border-box;
+    vertical-align: top;
+    border: 1px solid var(--border);
+    color: #1f2937;
+    background: #f9fafb;
+  }
+
+  .ex10-footer {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
+
+  footer.page-foot {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 30px 20px 50px;
+  }
+
+  @media (max-width: 600px) {
+    .ex10-aside, .ex10-main { width: 100%; display: block; height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-head">
+  <h1>Correção dos Exercícios Práticos</h1>
+  <p>Aula 6 — Layout com CSS: Box Model, Margin, Padding, Border e Display</p>
+</header>
+
+<nav class="toc">
+  <strong>Índice</strong>
+  <ul>
+    <li><a href="#ex1">1</a></li>
+    <li><a href="#ex2">2</a></li>
+    <li><a href="#ex3">3</a></li>
+    <li><a href="#ex4">4</a></li>
+    <li><a href="#ex5">5</a></li>
+    <li><a href="#ex6">6</a></li>
+    <li><a href="#ex7">7</a></li>
+    <li><a href="#ex8">8</a></li>
+    <li><a href="#ex9">9</a></li>
+    <li><a href="#ex10">10 — Desafio</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section class="exercicio" id="ex1">
+    <h2><span class="num">1</span> Os quatro componentes do Box Model</h2>
+    <ul>
+      <li><strong>Content</strong> — área onde o conteúdo (texto, imagem etc.) é exibido.</li>
+      <li><strong>Padding</strong> — espaço interno entre o conteúdo e a borda.</li>
+      <li><strong>Border</strong> — a borda que envolve o padding e o conteúdo.</li>
+      <li><strong>Margin</strong> — espaço externo entre o elemento e os vizinhos.</li>
+    </ul>
+  </section>
+
+  <section class="exercicio" id="ex2">
+    <h2><span class="num">2</span> Diferença entre Margin e Padding</h2>
+    <p><strong>Margin</strong> é o espaço <em>fora</em> da borda — afasta o elemento de outros elementos ao redor.<br>
+    <strong>Padding</strong> é o espaço <em>dentro</em> da borda — afasta o conteúdo da própria borda do elemento.</p>
+  </section>
+
+  <section class="exercicio" id="ex3">
+    <h2><span class="num">3</span> DIV: 200px × 100px, margin 20px</h2>
+    <pre>.caixa3 {
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex3-caixa">Conteúdo</div>
+    </div>
+  </section>
+
+  <section class="exercicio" id="ex4">
+    <h2><span class="num">4</span> DIV com padding 15px e fundo azul claro</h2>
+    <pre>.caixa4 {
+  padding: 15px;
+  background-color: lightblue;
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex4-caixa">Conteúdo</div>
+    </div>
+  </section>
+
+  <section class="exercicio" id="ex5">
+    <h2><span class="num">5</span> Borda vermelha de 3px</h2>
+    <pre>.elemento5 {
+  border: 3px solid red;
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex5-elemento">Elemento com borda</div>
+    </div>
+  </section>
+
+  <section class="exercicio" id="ex6">
+    <h2><span class="num">6</span> Diferença entre <code>display: block</code> e <code>display: inline</code></h2>
+    <p><strong>block</strong> ocupa toda a largura disponível e sempre inicia em uma nova linha (ex.: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>).<br>
+    <strong>inline</strong> ocupa apenas o espaço necessário e permanece na mesma linha que outros elementos (ex.: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>). Elementos inline não aceitam width/height diretamente.</p>
+  </section>
+
+  <section class="exercicio" id="ex7">
+    <h2><span class="num">7</span> Três caixas alinhadas horizontalmente</h2>
+    <pre>.caixa7 {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex7-caixa">1</div>
+      <div class="ex7-caixa">2</div>
+      <div class="ex7-caixa">3</div>
+    </div>
+  </section>
+
+  <section class="exercicio" id="ex8">
+    <h2><span class="num">8</span> Cartão (card): título, descrição, borda arredondada</h2>
+    <pre>.card {
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 20px;
+  width: 260px;
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex8-card">
+        <h3>Título do Card</h3>
+        <p>Descrição do card com algumas informações de exemplo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="exercicio" id="ex9">
+    <h2><span class="num">9</span> Layout: cabeçalho, conteúdo e rodapé</h2>
+    <pre>header, footer {
+  background: #1f2937;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+  margin: 10px 0;
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex9-header">Cabeçalho</div>
+      <div class="ex9-main">Conteúdo</div>
+      <div class="ex9-footer">Rodapé</div>
+    </div>
+  </section>
+
+  <section class="exercicio" id="ex10">
+    <h2><span class="num">10</span> Desafio — Layout completo (cabeçalho, menu, área principal, rodapé)</h2>
+    <pre>aside {
+  display: inline-block;
+  width: 25%;
+  ...
+}
+
+main {
+  display: inline-block;
+  width: 73%;
+  ...
+}</pre>
+    <div class="demo-label">Resultado</div>
+    <div class="demo">
+      <div class="ex10-wrapper">
+        <div class="ex10-header">Cabeçalho</div>
+        <div class="ex10-aside">Menu</div><div class="ex10-main">Área Principal</div>
+        <div class="ex10-footer">Rodapé</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-foot">
+  Correção de exercícios — Aula 6: Layout com CSS
+</footer>
+
+</body>
+</html>
