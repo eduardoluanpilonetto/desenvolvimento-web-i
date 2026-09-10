@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerícios 9 e 10</title>
+    <link rel="stylesheet" href="style10-9.css">
+</head>
+<body>
+    <header id="Cabecalho">
+        <h1>ElpSOFTWARE</h1>
+    </header>
+    <main id="Container">
+    </main>
+</body>
+    <script>
+        let meuHtml = "";
+        for(let i = 0; i < 20; i++){
+            meuHtml += `
+            <div class="Card">
+                <h1>Title Card</h1>
+                <img src="maxresdefault.jpg" alt="Img Card">
+                <p>My description</p>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                    <li>Item 4</li>
+                </ul>
+                <button><a href="http://google.com">Clique-me</a></button>
+            </div>
+            `;
+        }
+
+        document.getElementById("Container").innerHTML = meuHtml; 
+    </script>
+
+</html>
