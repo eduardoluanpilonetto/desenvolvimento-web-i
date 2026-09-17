@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 8 — Correção dos Exercícios | Recursos Modernos do HTML5</title>
+<style>
+  :root{
+    --bg: #12181c;
+    --panel: #1a2228;
+    --panel-alt: #202a31;
+    --ink: #e7edf0;
+    --ink-dim: #9fb0b8;
+    --accent: #4fd1a5;
+    --accent-soft: rgba(79,209,165,.14);
+    --code-bg: #0d1317;
+    --border: #2a353c;
+    --serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, Menlo, monospace;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height:1.55;
+  }
+
+  header.top{
+    padding:56px 24px 40px;
+    border-bottom:1px solid var(--border);
+    background:
+      radial-gradient(600px 200px at 15% 0%, var(--accent-soft), transparent 60%),
+      var(--panel);
+  }
+  header.top .eyebrow{
+    color:var(--accent);
+    font-size:.85rem;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  header.top h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:2.3rem;
+    margin:.35em 0 .2em;
+    max-width:720px;
+  }
+  header.top p{
+    color:var(--ink-dim);
+    max-width:620px;
+    margin:0;
+  }
+
+  nav.toc{
+    max-width:960px;
+    margin:32px auto 0;
+    padding:0 24px;
+  }
+  nav.toc ul{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  nav.toc a{
+    display:block;
+    padding:7px 14px;
+    border:1px solid var(--border);
+    border-radius:100px;
+    color:var(--ink-dim);
+    text-decoration:none;
+    font-size:.85rem;
+    transition:border-color .15s, color .15s;
+  }
+  nav.toc a:hover{ border-color:var(--accent); color:var(--ink); }
+
+  main{
+    max-width:960px;
+    margin:0 auto;
+    padding:48px 24px 100px;
+  }
+
+  section.exercise{
+    padding:36px 0;
+    border-bottom:1px solid var(--border);
+  }
+  section.exercise:last-child{ border-bottom:none; }
+
+  section.exercise h2{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-weight:600;
+    margin:0 0 4px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  section.exercise h2 .num{
+    color:var(--accent);
+    font-family:var(--mono);
+    font-size:1rem;
+  }
+  section.exercise .prompt{
+    color:var(--ink-dim);
+    margin:0 0 18px;
+    font-size:.95rem;
+  }
+
+  .demo{
+    background:var(--panel-alt);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:16px;
+  }
+  .demo .label{
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--accent);
+    text-transform:lowercase;
+    margin-bottom:12px;
+  }
+
+  pre{
+    background:var(--code-bg);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:16px 18px;
+    overflow-x:auto;
+    font-family:var(--mono);
+    font-size:.82rem;
+    line-height:1.6;
+    color:#c9e3d8;
+  }
+  code{ font-family:var(--mono); }
+
+  input[type=text]{
+    background:var(--code-bg);
+    border:1px solid var(--border);
+    color:var(--ink);
+    padding:9px 12px;
+    border-radius:6px;
+    font-size:.9rem;
+    margin-right:8px;
+  }
+  button{
+    background:var(--accent);
+    color:#0d1712;
+    border:none;
+    padding:9px 16px;
+    border-radius:6px;
+    font-weight:600;
+    font-size:.85rem;
+    cursor:pointer;
+  }
+  button.ghost{
+    background:transparent;
+    border:1px solid var(--border);
+    color:var(--ink);
+  }
+  button:hover{ opacity:.9; }
+
+  .status{
+    margin-top:10px;
+    font-size:.85rem;
+    color:var(--accent);
+    min-height:1.2em;
+  }
+
+  audio, video{ width:100%; max-width:520px; }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.85rem;
+  }
+  table caption{ text-align:left; color:var(--ink-dim); margin-bottom:6px;}
+  th, td{
+    text-align:left;
+    padding:6px 10px;
+    border-bottom:1px solid var(--border);
+  }
+
+  .final-page{
+    display:grid;
+    gap:18px;
+  }
+  .final-page section{
+    background:var(--panel-alt);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px;
+  }
+  .final-page h3{ margin-top:0; font-family:var(--serif); font-weight:600; }
+  .final-page footer{ color:var(--ink-dim); font-size:.85rem; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="eyebrow">Apostila — Aula 8</div>
+  <h1>Correção dos exercícios: Recursos Modernos do HTML5</h1>
+  <p>Solução comentada e demonstração funcional dos 10 exercícios sobre tags semânticas, áudio, vídeo, LocalStorage e APIs do navegador.</p>
+</header>
+
+<nav class="toc">
+  <ul>
+    <li><a href="#ex1">1. Semântica</a></li>
+    <li><a href="#ex2">2. Notícias</a></li>
+    <li><a href="#ex3">3. Áudio</a></li>
+    <li><a href="#ex4">4. Vídeo</a></li>
+    <li><a href="#ex5">5. Salvar</a></li>
+    <li><a href="#ex6">6. Recuperar</a></li>
+    <li><a href="#ex7">7. Remover</a></li>
+    <li><a href="#ex8">8. Geolocation</a></li>
+    <li><a href="#ex9">9. Clipboard</a></li>
+    <li><a href="#ex10">10. Página final</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- EXERCÍCIO 1 -->
+  <section class="exercise" id="ex1">
+    <h2><span class="num">01</span> Estrutura semântica básica</h2>
+    <p class="prompt">Crie uma página contendo &lt;header&gt;, &lt;nav&gt;, &lt;main&gt; e &lt;footer&gt;.</p>
+    <div class="demo">
+      <div class="label">resultado renderizado</div>
+      <header style="background:var(--code-bg);padding:8px 12px;border-radius:6px;margin-bottom:8px;">Cabeçalho do site</header>
+      <nav style="background:var(--code-bg);padding:8px 12px;border-radius:6px;margin-bottom:8px;">Início · Produtos · Contato</nav>
+      <main style="background:var(--code-bg);padding:8px 12px;border-radius:6px;margin-bottom:8px;">Conteúdo principal da página</main>
+      <footer style="background:var(--code-bg);padding:8px 12px;border-radius:6px;">Rodapé</footer>
+    </div>
+    <pre><code>&lt;header&gt;
+  &lt;h1&gt;Meu Site&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+  &lt;a href="#"&gt;Início&lt;/a&gt;
+  &lt;a href="#"&gt;Produtos&lt;/a&gt;
+  &lt;a href="#"&gt;Contato&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;main&gt;
+  &lt;h2&gt;Conteúdo principal da página&lt;/h2&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;© 2025 Meu Site&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 2 -->
+  <section class="exercise" id="ex2">
+    <h2><span class="num">02</span> Estrutura de notícias</h2>
+    <p class="prompt">Monte uma estrutura de notícias utilizando &lt;section&gt; e &lt;article&gt;, com pelo menos duas notícias.</p>
+    <pre><code>&lt;section&gt;
+  &lt;h2&gt;Notícias&lt;/h2&gt;
+
+  &lt;article&gt;
+    &lt;h3&gt;Nova tecnologia é lançada&lt;/h3&gt;
+    &lt;p&gt;Uma nova ferramenta promete facilitar o desenvolvimento web...&lt;/p&gt;
+  &lt;/article&gt;
+
+  &lt;article&gt;
+    &lt;h3&gt;HTML5 completa mais um ano&lt;/h3&gt;
+    &lt;p&gt;O padrão continua sendo atualizado com novos recursos...&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/section&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 3 -->
+  <section class="exercise" id="ex3">
+    <h2><span class="num">03</span> Áudio</h2>
+    <p class="prompt">Adicione um áudio MP3 à página utilizando a tag &lt;audio&gt; e exibindo os controles.</p>
+    <div class="demo">
+      <div class="label">demonstração (sem arquivo real anexado)</div>
+      <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+      </audio>
+    </div>
+    <pre><code>&lt;audio controls&gt;
+  &lt;source src="musica.mp3" type="audio/mpeg"&gt;
+  Seu navegador não suporta a tag de áudio.
+&lt;/audio&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 4 -->
+  <section class="exercise" id="ex4">
+    <h2><span class="num">04</span> Vídeo</h2>
+    <p class="prompt">Adicione um vídeo MP4 com largura de 500 pixels e controles habilitados.</p>
+    <div class="demo">
+      <div class="label">demonstração (sem arquivo real anexado)</div>
+      <video controls width="500">
+        <source src="meuvideo.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+    </div>
+    <pre><code>&lt;video controls width="500"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Seu navegador não suporta a tag de vídeo.
+&lt;/video&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 5 -->
+  <section class="exercise" id="ex5">
+    <h2><span class="num">05</span> Salvar no LocalStorage</h2>
+    <p class="prompt">Crie um formulário com um campo "Nome" e um botão que salve o valor no LocalStorage.</p>
+    <div class="demo">
+      <div class="label">demonstração funcional</div>
+      <input type="text" id="nomeEx5" placeholder="Digite seu nome">
+      <button onclick="salvarNome()">Salvar</button>
+      <div class="status" id="statusEx5"></div>
+    </div>
+    <pre><code>&lt;input type="text" id="nome"&gt;
+&lt;button onclick="salvar()"&gt;Salvar&lt;/button&gt;
+
+&lt;script&gt;
+function salvar() {
+  let nome = document.getElementById("nome").value;
+  localStorage.setItem("nome", nome);
+  alert("Salvo!");
+}
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 6 -->
+  <section class="exercise" id="ex6">
+    <h2><span class="num">06</span> Recuperar automaticamente</h2>
+    <p class="prompt">Ao carregar a página, recupere automaticamente o nome salvo no LocalStorage.</p>
+    <div class="demo">
+      <div class="label">demonstração — recarregue a página após salvar no exercício 5</div>
+      <input type="text" id="nomeEx6" placeholder="Preenchido automaticamente ao carregar">
+    </div>
+    <pre><code>window.onload = function() {
+  let nome = localStorage.getItem("nome");
+  if (nome) {
+    document.getElementById("nome").value = nome;
+  }
+}</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 7 -->
+  <section class="exercise" id="ex7">
+    <h2><span class="num">07</span> Remover do LocalStorage</h2>
+    <p class="prompt">Crie um botão para remover o nome armazenado no LocalStorage.</p>
+    <div class="demo">
+      <div class="label">demonstração funcional</div>
+      <button class="ghost" onclick="removerNome()">Remover nome salvo</button>
+      <div class="status" id="statusEx7"></div>
+    </div>
+    <pre><code>&lt;button onclick="remover()"&gt;Remover&lt;/button&gt;
+
+&lt;script&gt;
+function remover() {
+  localStorage.removeItem("nome");
+  alert("Removido!");
+}
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 8 -->
+  <section class="exercise" id="ex8">
+    <h2><span class="num">08</span> Geolocation API</h2>
+    <p class="prompt">Utilize a Geolocation API para exibir latitude e longitude do usuário na tela.</p>
+    <div class="demo">
+      <div class="label">demonstração funcional (o navegador pedirá permissão)</div>
+      <button onclick="mostrarLocalizacao()">Obter localização</button>
+      <div class="status" id="statusEx8"></div>
+    </div>
+    <pre><code>navigator.geolocation.getCurrentPosition(mostrarPosicao);
+
+function mostrarPosicao(posicao) {
+  console.log(posicao.coords.latitude);
+  console.log(posicao.coords.longitude);
+}</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 9 -->
+  <section class="exercise" id="ex9">
+    <h2><span class="num">09</span> Clipboard API</h2>
+    <p class="prompt">Crie um botão que copie a frase "Aprendendo HTML5" para a área de transferência.</p>
+    <div class="demo">
+      <div class="label">demonstração funcional</div>
+      <button onclick="copiarFrase()">Copiar frase</button>
+      <div class="status" id="statusEx9"></div>
+    </div>
+    <pre><code>&lt;button onclick="copiar()"&gt;Copiar&lt;/button&gt;
+
+&lt;script&gt;
+function copiar() {
+  navigator.clipboard.writeText("Aprendendo HTML5");
+}
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <!-- EXERCÍCIO 10 -->
+  <section class="exercise" id="ex10">
+    <h2><span class="num">10</span> Página completa</h2>
+    <p class="prompt">Estrutura semântica completa + áudio + vídeo + LocalStorage + localização + botão de copiar, tudo em uma única página.</p>
+
+    <div class="final-page">
+      <header style="background:var(--code-bg);padding:10px 14px;border-radius:8px;">
+        <strong>Portal HTML5</strong>
+      </header>
+
+      <nav style="background:var(--code-bg);padding:10px 14px;border-radius:8px;">
+        Início · Mídia · Sobre
+      </nav>
+
+      <section>
+        <h3>Mídia</h3>
+        <p style="color:var(--ink-dim);font-size:.9rem;margin-top:-6px;">Áudio e vídeo de exemplo (arquivos não anexados)</p>
+        <audio controls style="margin-bottom:10px;">
+          <source src="audio.mp3" type="audio/mpeg">
+        </audio><br>
+        <video controls width="400">
+          <source src="meuvideo.mp4" type="video/mp4">
+        </video>
+      </section>
+
+      <section>
+        <h3>Seus dados</h3>
+        <input type="text" id="nomeFinal" placeholder="Digite seu nome">
+        <button onclick="salvarFinal()">Salvar</button>
+        <button class="ghost" onclick="removerFinal()">Remover</button>
+        <div class="status" id="statusFinal"></div>
+      </section>
+
+      <section>
+        <h3>Sua localização</h3>
+        <button onclick="localizacaoFinal()">Obter localização</button>
+        <div class="status" id="statusLocFinal"></div>
+      </section>
+
+      <section>
+        <h3>Compartilhar</h3>
+        <button onclick="copiarFinal()">Copiar "Aprendendo HTML5"</button>
+        <div class="status" id="statusCopyFinal"></div>
+      </section>
+
+      <footer style="background:var(--code-bg);padding:10px 14px;border-radius:8px;">
+        © 2025 — Todos os direitos reservados
+      </footer>
+    </div>
+
+    <p class="prompt" style="margin-top:18px;">Código completo:</p>
+    <pre><code>&lt;body&gt;
+  &lt;header&gt;&lt;h1&gt;Portal HTML5&lt;/h1&gt;&lt;/header&gt;
+
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Início&lt;/a&gt;
+    &lt;a href="#"&gt;Mídia&lt;/a&gt;
+    &lt;a href="#"&gt;Sobre&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Mídia&lt;/h2&gt;
+      &lt;audio controls&gt;
+        &lt;source src="musica.mp3" type="audio/mpeg"&gt;
+      &lt;/audio&gt;
+      &lt;video controls width="400"&gt;
+        &lt;source src="video.mp4" type="video/mp4"&gt;
+      &lt;/video&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h2&gt;Seus dados&lt;/h2&gt;
+      &lt;input type="text" id="nome"&gt;
+      &lt;button onclick="salvar()"&gt;Salvar&lt;/button&gt;
+      &lt;button onclick="remover()"&gt;Remover&lt;/button&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h2&gt;Localização&lt;/h2&gt;
+      &lt;button onclick="obterLocalizacao()"&gt;Obter localização&lt;/button&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h2&gt;Compartilhar&lt;/h2&gt;
+      &lt;button onclick="copiar()"&gt;Copiar frase&lt;/button&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;© 2025&lt;/footer&gt;
+
+  &lt;script&gt;
+    window.onload = function() {
+      let nome = localStorage.getItem("nome");
+      if (nome) document.getElementById("nome").value = nome;
+    }
+
+    function salvar() {
+      let nome = document.getElementById("nome").value;
+      localStorage.setItem("nome", nome);
+    }
+
+    function remover() {
+      localStorage.removeItem("nome");
+    }
+
+    function obterLocalizacao() {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        console.log(pos.coords.latitude, pos.coords.longitude);
+      });
+    }
+
+    function copiar() {
+      navigator.clipboard.writeText("Aprendendo HTML5");
+    }
+  &lt;/script&gt;
+&lt;/body&gt;</code></pre>
+  </section>
+
+</main>
+
+<script>
+  // Exercício 5 — salvar
+  window.addEventListener("load", function () {
+    let nomeSalvo = localStorage.getItem("nome");
+    if (nomeSalvo) {
+      document.getElementById("nomeEx6").value = nomeSalvo;
+      document.getElementById("nomeFinal").value = nomeSalvo;
+    }
+  });
+
+  function salvarNome() {
+    let nome = document.getElementById("nomeEx5").value;
+    localStorage.setItem("nome", nome);
+    document.getElementById("statusEx5").textContent = nome ? `Salvo: "${nome}"` : "Digite um nome antes de salvar.";
+    document.getElementById("nomeEx6").value = nome;
+  }
+
+  // Exercício 7 — remover
+  function removerNome() {
+    localStorage.removeItem("nome");
+    document.getElementById("statusEx7").textContent = "Nome removido do LocalStorage.";
+    document.getElementById("nomeEx5").value = "";
+    document.getElementById("nomeEx6").value = "";
+  }
+
+  // Exercício 8 — geolocation
+  function mostrarLocalizacao() {
+    const status = document.getElementById("statusEx8");
+    if (!navigator.geolocation) {
+      status.textContent = "Geolocalização não suportada neste navegador.";
+      return;
+    }
+    status.textContent = "Solicitando permissão...";
+    navigator.geolocation.getCurrentPosition(
+      function (posicao) {
+        status.textContent = `Latitude: ${posicao.coords.latitude.toFixed(5)} | Longitude: ${posicao.coords.longitude.toFixed(5)}`;
+      },
+      function (erro) {
+        status.textContent = "Não foi possível obter a localização (permissão negada ou indisponível).";
+      }
+    );
+  }
+
+  // Exercício 9 — clipboard
+  function copiarFrase() {
+    navigator.clipboard.writeText("Aprendendo HTML5").then(function () {
+      document.getElementById("statusEx9").textContent = "Frase copiada para a área de transferência!";
+    }).catch(function () {
+      document.getElementById("statusEx9").textContent = "Não foi possível copiar (permissão do navegador).";
+    });
+  }
+
+  // Exercício 10 — página final
+  function salvarFinal() {
+    let nome = document.getElementById("nomeFinal").value;
+    localStorage.setItem("nome", nome);
+    document.getElementById("statusFinal").textContent = nome ? `Salvo: "${nome}"` : "Digite um nome antes de salvar.";
+  }
+
+  function removerFinal() {
+    localStorage.removeItem("nome");
+    document.getElementById("nomeFinal").value = "";
+    document.getElementById("statusFinal").textContent = "Nome removido.";
+  }
+
+  function localizacaoFinal() {
+    const status = document.getElementById("statusLocFinal");
+    if (!navigator.geolocation) {
+      status.textContent = "Geolocalização não suportada.";
+      return;
+    }
+    status.textContent = "Solicitando permissão...";
+    navigator.geolocation.getCurrentPosition(
+      function (posicao) {
+        status.textContent = `Lat: ${posicao.coords.latitude.toFixed(4)} | Long: ${posicao.coords.longitude.toFixed(4)}`;
+      },
+      function () {
+        status.textContent = "Permissão negada ou indisponível.";
+      }
+    );
+  }
+
+  function copiarFinal() {
+    navigator.clipboard.writeText("Aprendendo HTML5").then(function () {
+      document.getElementById("statusCopyFinal").textContent = "Copiado!";
+    }).catch(function () {
+      document.getElementById("statusCopyFinal").textContent = "Não foi possível copiar.";
+    });
+  }
+</script>
+
+</body>
+</html>
