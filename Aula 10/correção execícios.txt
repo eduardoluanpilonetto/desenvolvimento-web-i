@@ -1,0 +1,70 @@
+Exercício 1
+O que é a plataforma .NET e qual sua principal finalidade?
+Resposta:
+A plataforma .NET é um ambiente de desenvolvimento criado pela Microsoft que permite a criação de diversos tipos de aplicações, como aplicações Desktop, Web, APIs REST, Mobile e sistemas corporativos.
+
+Exercício 2
+Cite três tipos de aplicações que podem ser desenvolvidas utilizando a plataforma .NET.
+Resposta:
+Podem ser desenvolvidas, por exemplo:
+Aplicações Desktop;
+Aplicações Web;
+APIs REST.
+Também são possíveis aplicações Mobile, serviços em nuvem e sistemas corporativos.
+
+Exercício 3
+Qual é a função da CLR (Common Language Runtime)?
+Resposta:
+A CLR é o ambiente responsável pela execução dos programas. Ela também realiza funções como gerenciamento de memória, coleta de lixo (Garbage Collector), tratamento de exceções e segurança da aplicação.
+
+Exercício 4
+Explique a diferença entre Frontend e Backend.
+Resposta:
+O Frontend é a parte responsável pela interface com o usuário, utilizando tecnologias como HTML, CSS e JavaScript.
+O Backend é responsável pelo processamento das regras do sistema. Em aplicações ASP.NET Core, essa camada é desenvolvida em C#.
+
+Exercício 5
+Quais são as três camadas principais de uma aplicação web?
+Resposta:
+Camada de Apresentação (Frontend) – responsável pela interface com o usuário.
+Camada de Negócio (Backend) – responsável pelo processamento das regras do sistema.
+Camada de Dados – responsável pelo armazenamento das informações.
+
+Exercício 6
+O que é o protocolo HTTP?
+Resposta:
+HTTP significa HyperText Transfer Protocol. É o protocolo responsável pela comunicação entre cliente e servidor na web.
+
+Exercício 7
+Qual método HTTP é utilizado para enviar dados para criação de um novo registro?
+Resposta correta:
+b) POST ✅
+O método POST é utilizado para enviar dados ao servidor, como no cadastro de um novo usuário.
+
+Exercício 8
+Qual código HTTP indica que um recurso não foi encontrado?
+Resposta correta:
+c) 404 ✅
+O código 404 – Not Found indica que o recurso solicitado não foi encontrado.
+
+Exercício 9
+Descreva o fluxo de comunicação entre cliente e servidor quando um usuário acessa uma página web.
+Resposta:
+O navegador envia uma requisição ao servidor.
+O servidor recebe e processa a solicitação.
+O servidor retorna uma resposta.
+O navegador recebe a resposta e exibe o conteúdo para o usuário.
+
+Exercício 10
+Associe os métodos HTTP às suas funções:
+Método	Função	Resposta
+GET	Consultar dados	b
+POST	Criar dados	d
+PUT	Atualizar dados	a
+DELETE	Excluir dados	c
+
+Gabarito:
+GET – b
+POST – d
+PUT – a
+DELETE – c
