@@ -1,8 +1,61 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Aula 14 | ASP.NET MVC";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="intro-band">
+    <p class="eyebrow">DESENVOLVIMENTO WEB I <span>AULA 14</span></p>
+    <h1>ASP.NET MVC<br /><em>exercicios resolvidos</em></h1>
+    <p class="intro-copy">Conceitos essenciais e exemplos praticos de Controllers, rotas, Views e Models.</p>
+</section>
+
+<section class="answer-section" aria-labelledby="conceitos-title">
+    <div class="section-heading">
+        <p class="eyebrow">FUNDAMENTOS</p>
+        <h2 id="conceitos-title">Entenda o fluxo</h2>
+    </div>
+    <article class="answer-row">
+        <span class="answer-number">01</span>
+        <div>
+            <h3>O que e um Controller?</h3>
+            <p>Uma classe que recebe as requisicoes, coordena a logica da aplicacao e devolve uma resposta, como uma View ou um redirecionamento.</p>
+        </div>
+    </article>
+    <article class="answer-row">
+        <span class="answer-number">02</span>
+        <div>
+            <h3>Model, View e Controller</h3>
+            <p><strong>Model</strong> representa dados e regras; <strong>View</strong> apresenta a interface; <strong>Controller</strong> recebe a requisicao e conecta os dois.</p>
+        </div>
+    </article>
+    <article class="answer-row">
+        <span class="answer-number">03</span>
+        <div>
+            <h3>Como funciona a rota padrao?</h3>
+            <p><code>{controller=Home}/{action=Index}/{id?}</code> direciona para o Controller e a Action informados. Sem valores, abre <code>Home/Index</code>; o identificador e opcional.</p>
+        </div>
+    </article>
+</section>
+
+<section class="examples-section" aria-labelledby="exemplos-title">
+    <div class="section-heading">
+        <p class="eyebrow">NA APLICACAO</p>
+        <h2 id="exemplos-title">Exercicios em funcionamento</h2>
+    </div>
+    <div class="example-list">
+        <a class="example-link" asp-controller="Produto" asp-action="Listar">
+            <span class="example-number">04</span><span class="example-title">ProdutoController e Action Listar</span><span class="example-arrow">&rarr;</span>
+        </a>
+        <a class="example-link" href="/produtos/10">
+            <span class="example-number">05</span><span class="example-title">Rota personalizada <code>/produtos/10</code></span><span class="example-arrow">&rarr;</span>
+        </a>
+        <a class="example-link" asp-action="BemVindo">
+            <span class="example-number">06</span><span class="example-title">View de boas-vindas</span><span class="example-arrow">&rarr;</span>
+        </a>
+        <a class="example-link" asp-action="Saudacao">
+            <span class="example-number">07</span><span class="example-title">ViewBag com o nome Pedro</span><span class="example-arrow">&rarr;</span>
+        </a>
+        <a class="example-link" asp-action="Cliente">
+            <span class="example-number">08–10</span><span class="example-title">Model Cliente e View fortemente tipada</span><span class="example-arrow">&rarr;</span>
+        </a>
+    </div>
+</section>

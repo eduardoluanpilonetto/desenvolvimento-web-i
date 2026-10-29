@@ -18,6 +18,29 @@ namespace CorrecaoExercicios.Controllers
             return View();
         }
 
+        public IActionResult BemVindo()
+        {
+            return View();
+        }
+
+        public IActionResult Saudacao()
+        {
+            ViewBag.Nome = "Pedro";
+            return View();
+        }
+
+        public IActionResult Cliente()
+        {
+            var cliente = new Cliente
+            {
+                Id = 1,
+                Nome = "Mariana Costa",
+                Email = "mariana.costa@example.com"
+            };
+
+            return View(cliente);
+        }
+
         public IActionResult Privacy()
         {
             return View();

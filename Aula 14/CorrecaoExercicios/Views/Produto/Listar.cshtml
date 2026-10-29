@@ -1,0 +1,22 @@
+@model IReadOnlyList<Produto>
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<section class="demo-page">
+    <p class="eyebrow">EXERCICIOS 04–05 / CONTROLLER E ROTA</p>
+    <h1>Produtos</h1>
+    <p>A Action <code>ProdutoController.Listar</code> envia esta lista para a View.</p>
+    <div class="product-list">
+        @foreach (var produto in Model)
+        {
+            <a class="product-row" href="/produtos/@produto.Id">
+                <span class="product-id">#@produto.Id</span>
+                <span class="product-name">@produto.Nome</span>
+                <span class="product-price">@produto.Preco.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))</span>
+                <span class="example-arrow">&rarr;</span>
+            </a>
+        }
+    </div>
+    <a class="back-link" asp-controller="Home" asp-action="Index">&larr; Voltar aos exercicios</a>
+</section>

@@ -1,0 +1,16 @@
+@model Produto
+@{
+    ViewData["Title"] = Model.Nome;
+}
+
+<section class="demo-page">
+    <p class="eyebrow">EXERCICIO 05 / ROTA PERSONALIZADA</p>
+    <h1>@Model.Nome</h1>
+    <p>A URL <code>/produtos/@Model.Id</code> direciona para <code>ProdutoController.Detalhes(@Model.Id)</code>.</p>
+    <dl class="detail-list">
+        <div><dt>Id</dt><dd>@Model.Id</dd></div>
+        <div><dt>Nome</dt><dd>@Model.Nome</dd></div>
+        <div><dt>Preco</dt><dd>@Model.Preco.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))</dd></div>
+    </dl>
+    <a class="back-link" asp-action="Listar">&larr; Voltar aos produtos</a>
+</section>
